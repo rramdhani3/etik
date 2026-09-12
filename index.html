@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klinik Etika ✨</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="floating-bg">
+    <span>✦</span><span>♡</span><span>✧</span><span>✿</span><span>♡</span>
+  </div>
+
+  <main class="game">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">🩺</div>
+        <div>
+          <h1>Klinik Etika</h1>
+          <p>Misi Menjaga Etika Psikologi ✨</p>
+        </div>
+      </div>
+      <div class="progress-box">
+        <span>📋 Kasus</span>
+        <strong id="progress">1/5</strong>
+      </div>
+    </header>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="stat-icon">⭐</span>
+        <div><small>Etika Point</small><strong id="score">100</strong></div>
+      </div>
+      <div class="hearts" id="hearts">♥ ♥ ♥ ♥ ♥</div>
+      <div class="helper-badge">🐰 Nona Bunny</div>
+    </section>
+
+    <section class="scene">
+      <div class="sparkle s1">✦</div>
+      <div class="sparkle s2">✧</div>
+
+      <div class="character-wrap">
+        <div class="speech" id="speech">
+          Hai! Yuk bantu aku memilih tindakan yang paling etis! 💗
+        </div>
+        <div class="character" id="character">
+          <div class="ear left"></div>
+          <div class="ear right"></div>
+          <div class="hair"></div>
+          <div class="face">
+            <span class="eye left-eye">•</span>
+            <span class="eye right-eye">•</span>
+            <span class="blush left-blush"></span>
+            <span class="blush right-blush"></span>
+            <span class="mouth">⌣</span>
+          </div>
+          <div class="body">
+            <span class="coat-button b1"></span>
+            <span class="coat-button b2"></span>
+            <span class="stethoscope">◡</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-label" id="case-category">KATEGORI KASUS</div>
+        <h2 id="case-title">Memuat kasus...</h2>
+        <p id="case-description">Memuat kasus...</p>
+      </div>
+    </section>
+
+    <section class="answer-section">
+      <div class="section-title">
+        <span>💭</span>
+        <h3>Apa yang sebaiknya dilakukan?</h3>
+      </div>
+      <div class="actions" id="action-buttons"></div>
+      <div id="feedback" class="feedback"></div>
+      <button id="next-btn" class="next-btn" onclick="nextCase()">Lanjutkan ✨</button>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="end-modal">
+    <div class="result-card">
+      <div class="result-character">🐰</div>
+      <div class="confetti">✦ ✧ ✦ ✧ ✦</div>
+      <h2>Semua Kasus Selesai! 🎉</h2>
+      <p>Terima kasih sudah membantu menjaga etika di klinik.</p>
+      <div class="final-score">
+        <small>ETIKA POINT</small>
+        <strong id="final-score">100</strong>
+        <span>/ 100</span>
+      </div>
+      <div class="evaluation" id="evaluation"></div>
+      <button class="restart-btn" onclick="location.reload()">🔄 Main Lagi</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
