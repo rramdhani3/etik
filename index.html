@@ -3,12 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Klinik Etika ✨</title>
+  <title>Klinik Etika</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="floating-bg">
     <span>✦</span><span>♡</span><span>✧</span><span>✿</span><span>♡</span>
+  </div>
+
+  <!-- Audio Backsound (ganti audio.mp3 dengan link/file musik kamu) -->
+  <audio id="bg-music" loop>
+    <source src="detektif.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Modal Input Nama -->
+  <div class="modal" id="start-modal">
+    <div class="start-card">
+      <div class="result-character">🩺</div>
+      <h2>Selamat Datang!</h2>
+      <p>Masukkan namamu sebelum memulai misi menjaga etika di klinik.</p>
+      <form class="start-form" id="start-form" onsubmit="startGame(event)">
+        <input type="text" id="player-name-input" class="input-name" placeholder="Nama Pemain..." required maxLength="30">
+        <button type="submit" class="start-btn">Mulai Bermain</button>
+      </form>
+    </div>
   </div>
 
   <main class="game">
@@ -17,19 +35,26 @@
         <div class="brand-icon">🩺</div>
         <div>
           <h1>Klinik Etika</h1>
-          <p>Misi Menjaga Etika Psikologi ✨</p>
+          <p>Misi Menjaga Etika Psikologi</p>
         </div>
       </div>
-      <div class="progress-box">
-        <span>📋 Kasus</span>
-        <strong id="progress">1/5</strong>
+      
+      <!-- Tambahan: Container Kanan Topbar (Tombol Mute & Progress) -->
+      <div class="topbar-right">
+        <button id="music-toggle-btn" class="music-btn" onclick="toggleMusic()" title="Matikan/Nyalakan Musik">
+          🔊
+        </button>
+        <div class="progress-box">
+          <span>Kasus</span>
+          <strong id="progress">1/5</strong>
+        </div>
       </div>
     </header>
 
     <section class="stats">
       <div class="stat">
         <span class="stat-icon">⭐</span>
-        <div><small>Etika Point</small><strong id="score">100</strong></div>
+        <div><small>Etika Point</small><strong id="score">0</strong></div>
       </div>
       <div class="hearts" id="hearts">♥ ♥ ♥ ♥ ♥</div>
       <div class="helper-badge">🐰 Nona Bunny</div>
@@ -76,23 +101,25 @@
       </div>
       <div class="actions" id="action-buttons"></div>
       <div id="feedback" class="feedback"></div>
-      <button id="next-btn" class="next-btn" onclick="nextCase()">Lanjutkan ✨</button>
+      <button id="next-btn" class="next-btn" onclick="nextCase()">Lanjutkan</button>
     </section>
   </main>
 
+  <!-- Modal Hasil Akhir -->
   <div class="modal hidden" id="end-modal">
     <div class="result-card">
       <div class="result-character">🐰</div>
       <div class="confetti">✦ ✧ ✦ ✧ ✦</div>
       <h2>Semua Kasus Selesai! 🎉</h2>
-      <p>Terima kasih sudah membantu menjaga etika di klinik.</p>
+      <p>Terima kasih <strong id="player-display-name">Pemain</strong> sudah membantu menjaga etika di klinik.</p>
       <div class="final-score">
         <small>ETIKA POINT</small>
-        <strong id="final-score">100</strong>
+        <strong id="final-score">0</strong>
         <span>/ 100</span>
       </div>
       <div class="evaluation" id="evaluation"></div>
-      <button class="restart-btn" onclick="location.reload()">🔄 Main Lagi</button>
+      <div id="save-status" class="save-status"></div>
+      <button class="restart-btn" onclick="location.reload()">Main Lagi</button>
     </div>
   </div>
 

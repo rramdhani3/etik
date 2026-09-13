@@ -1,3 +1,7 @@
+// masukkan URL Google Apps Script yang didapat dari Langkah 1
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzHbR_-1sya5gGkECd6N3Jv6ummGiBIm_Z-ufgoa3PPnRA-DLkypCyQxx-d_STKYIZxYA/exec";
+
+// Data Kasus Etika Psikologi
 // Data Kasus Etika Psikologi
 const cases = [
   {
@@ -128,12 +132,17 @@ const cases = [
 ];
 
 // State Game
+let playerName = "";
 let currentCaseIndex = 0;
 let score = 0;
 let lives = 5;
 const maxScorePerCase = 20;
+let isMuted = false;
 
 // Element DOM
+const startModal = document.getElementById("start-modal");
+const nameInput = document.getElementById("player-name-input");
+const playerDisplayName = document.getElementById("player-display-name");
 const progressEl = document.getElementById("progress");
 const scoreEl = document.getElementById("score");
 const heartsEl = document.getElementById("hearts");
@@ -147,7 +156,52 @@ const nextBtn = document.getElementById("next-btn");
 const endModal = document.getElementById("end-modal");
 const finalScoreEl = document.getElementById("final-score");
 const evaluationEl = document.getElementById("evaluation");
+const saveStatusEl = document.getElementById("save-status");
 const characterEl = document.getElementById("character");
+const bgMusic = document.getElementById("bg-music");
+const musicToggleBtn = document.getElementById("music-toggle-btn");
+
+// Fungsi Kontrol Musik Mute/Unmute
+function toggleMusic() {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    isMuted = false;
+    musicToggleBtn.innerText = "🔊";
+    musicToggleBtn.classList.remove("muted");
+  } else {
+    bgMusic.pause();
+    isMuted = true;
+    musicToggleBtn.innerText = "🔇";
+    musicToggleBtn.classList.add("muted");
+  }
+}
+
+// Fungsi Mulai Game setelah isi Nama
+function startGame(event) {
+  event.preventDefault();
+  const inputVal = nameInput.value.trim();
+  if (!inputVal) return;
+
+  playerName = inputVal;
+  startModal.classList.add("hidden");
+
+  // Putar Musik Otomatis Saat Game Dimulai
+  bgMusic.volume = 0.4; // atur volume (0.0 - 1.0)
+  bgMusic.play().then(() => {
+    isMuted = false;
+    musicToggleBtn.innerText = "🔊";
+  }).catch(err => {
+    console.log("Autoplay dicegah browser:", err);
+  });
+
+  // Inisialisasi game
+  score = 0;
+  lives = 5;
+  currentCaseIndex = 0;
+  scoreEl.innerText = score;
+  updateHearts();
+  loadCase();
+}
 
 // Render Nyawa (Hearts)
 function updateHearts() {
@@ -170,7 +224,7 @@ function loadCase() {
   feedbackEl.style.display = "none";
   feedbackEl.className = "feedback";
   nextBtn.style.display = "none";
-  speechEl.innerText = "Yuk bantu aku memilih tindakan yang paling etis! 💗";
+  speechEl.innerText = `Hai ${playerName}! Yuk bantu aku memilih tindakan yang paling etis! 💗`;
 
   // Render Info Kasus
   progressEl.innerText = `${currentCaseIndex + 1}/${cases.length}`;
@@ -195,7 +249,6 @@ function loadCase() {
 
 // Memilih Jawaban
 function selectOption(option) {
-  // Nonaktifkan semua tombol agar tidak bisa diklik dua kali
   const buttons = actionButtonsEl.querySelectorAll("button");
   buttons.forEach(btn => btn.disabled = true);
 
@@ -214,14 +267,12 @@ function selectOption(option) {
     feedbackEl.innerHTML = `<strong>Kurang Tepat! 😅</strong><br>${option.feedback}`;
     speechEl.innerText = "Hmm... Pilihan itu kurang sesuai dengan etika. Tetap semangat! 🥺";
 
-    // Efek animasi getar jika salah
     characterEl.classList.add("shake");
     setTimeout(() => characterEl.classList.remove("shake"), 400);
   }
 
   feedbackEl.style.display = "block";
 
-  // Cek apakah game berlanjut atau tamat
   if (currentCaseIndex < cases.length - 1 && lives > 0) {
     nextBtn.style.display = "inline-block";
   } else {
@@ -237,10 +288,11 @@ function nextCase() {
   }
 }
 
-// Tampilkan Modal Hasil Akhir
+// Tampilkan Modal Hasil Akhir & Simpan ke Spreadsheet
 function showEndModal() {
   endModal.classList.remove("hidden");
   finalScoreEl.innerText = score;
+  playerDisplayName.innerText = playerName;
 
   let evalText = "";
   if (score === 100) {
@@ -252,12 +304,40 @@ function showEndModal() {
   }
 
   evaluationEl.innerText = evalText;
+
+  // Otomatis Simpan Hasil ke Spreadsheet
+  saveResultToSpreadsheet(playerName, score);
 }
 
-// Jalankan game saat pertama kali dibuka
-window.onload = () => {
-  score = 0;
-  lives = 5;
-  updateHearts();
-  loadCase();
-};
+// Pengiriman Data ke Google Apps Script
+function saveResultToSpreadsheet(name, finalScore) {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("URL_APPS_SCRIPT_ANDA")) {
+    saveStatusEl.innerText = "⚠️ Masukkan URL Apps Script untuk menyimpan nilai ke Spreadsheet.";
+    return;
+  }
+
+  saveStatusEl.innerText = "⏳ Menyimpan skor ke Spreadsheet...";
+
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify({
+      playerName: name,
+      score: finalScore
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.result === 'success') {
+      saveStatusEl.innerText = "✅ Data berhasil tersimpan ke Spreadsheet!";
+    } else {
+      saveStatusEl.innerText = "❌ Gagal menyimpan data.";
+    }
+  })
+  .catch((err) => {
+    console.log("Pengiriman selesai:", err);
+    saveStatusEl.innerText = "✅ Data berhasil tersimpan ke Spreadsheet!";
+  });
+}
