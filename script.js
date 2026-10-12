@@ -12,7 +12,7 @@ const allCases = [
     options: [
       { text: "Setelah menerima permintaan dari pihak yang menangani kasus hukum.", desc: "Menerima permintaan langsung dari pihak hukum.", correct: false, feedback: "Kurang tepat! Permintaan pihak hukum saja tidak cukup; psikolog harus tetap melaksanakan pemeriksaan sesuai standar prosedur sebelum membuat laporan." },
       { text: "Setelah memperoleh informasi dari keluarga atau pihak terdekat saja.", desc: "Mengandalkan info keluarga/pihak terdekat.", correct: false, feedback: "Salah! Informasi dari keluarga tidak menggantikan prosedur pemeriksaan psikologi langsung yang sesuai standar baku." },
-      { text: "Setelah melakukan pemeriksaan sesuai standar prosedur pemeriksaan psikologi.", desc: "Melaksanakan pemeriksaan sesuai standar baku.", correct: true, feedback: "Tepat sekali! ✨ Berdasarkan Kode Etik HIMPSI Pasal 58, psikolog forensik berwenang membuat laporan setelah melakukan pemeriksaan psikologi sesuai dengan standar prosedur yang berlaku." },
+      { text: "Setelah melakukan pemeriksaan sesuai standar prosedur pemeriksaan psikologi.", desc: "Melaksanakan pemeriksaan sesuai standar baku.", correct: true, feedback: "Tepat sekali! Berdasarkan Kode Etik HIMPSI Pasal 58, psikolog forensik berwenang membuat laporan setelah melakukan pemeriksaan psikologi sesuai dengan standar prosedur yang berlaku." },
       { text: "Setelah mengetahui kronologi kasus dari media massa.", desc: "Mengikuti kronologi di berita/media massa.", correct: false, feedback: "Salah! Media massa bukanlah sumber asesmen yang valid; laporan harus didasarkan pada pemeriksaan psikologis langsung yang objektif." }
     ]
   },
@@ -22,9 +22,10 @@ const allCases = [
     type: "input",
     category: "STANDAR ASESMEN",
     title: "Landasan Baku Pemeriksaan Psikologi",
-    description: "Dalam menjalankan tanggung jawabnya psikolog harus mendasarkan pada standar pemeriksaan psikologi yang baku sesuai kode etik psikologi yang terkait dengan asesmen, dan intervensi. Sesuai yang tercantum pada Kode Etik Psikologi Indonesia Pasal…(Ketik jawabanmu, misal: 520)",
+    description: "Dalam menjalankan tanggung jawabnya psikolog harus mendasarkan pada standar pemeriksaan psikologi yang baku sesuai kode etik psikologi yang terkait dengan asesmen, dan intervensi. Sesuai yang tercantum pada Kode Etik Psikologi Indonesia Pasal… (Ketik angka pasal, misal: 57)",
     answer: "57",
-    feedback: "Benar! 🌟 Pasal 57 Kode Etik Psikologi Indonesia menegaskan bahwa psikolog wajib mendasarkan seluruh tindakan asesmen dan intervensinya pada standar pemeriksaan psikologi yang baku."
+    feedback: "Benar! Pasal 57 Kode Etik Psikologi Indonesia menegaskan bahwa psikolog wajib mendasarkan seluruh tindakan asesmen dan intervensinya pada standar pemeriksaan psikologi yang baku.",
+    wrongFeedback: "Salah! Ketentuan mengenai kewajiban mendasarkan tindakan pada standar pemeriksaan psikologi yang baku diatur dalam Pasal 57."
   },
 
   // --- SOAL 3 (Pilihan Ganda) ---
@@ -35,7 +36,7 @@ const allCases = [
     description: "Seorang psikolog forensik diminta memberikan pernyataan kepada media mengenai kasus hukum yang sedang ditanganinya. Berdasarkan Kode Etik HIMPSI Pasal 61, tindakan yang tepat adalah ...",
     options: [
       { text: "Memberikan seluruh informasi kasus agar masyarakat mengetahui fakta yang sebenarnya.", desc: "Membuka seluruh detail kasus ke publik.", correct: false, feedback: "Salah! Psikolog terikat oleh asas kerahasiaan klien dan tidak boleh membocorkan seluruh detail informasi kasus ke publik." },
-      { text: "Memberikan pernyataan berdasarkan kaidah psikologi dengan mempertimbangkan kepentingan masyarakat dan kerahasiaan.", desc: "Berdasarkan kaidah ilmiah & rahasia.", correct: true, feedback: "Luar biasa! 🎉 Sesuai Kode Etik HIMPSI Pasal 61, saat berbicara di media mengenai kasus hukum, psikolog wajib tetap berpegang pada kaidah ilmiah psikologi serta menjaga kerahasiaan dan kepentingan masyarakat." },
+      { text: "Memberikan pernyataan berdasarkan kaidah psikologi dengan mempertimbangkan kepentingan masyarakat dan kerahasiaan.", desc: "Berdasarkan kaidah ilmiah & rahasia.", correct: true, feedback: "Luar biasa! Sesuai Kode Etik HIMPSI Pasal 61, saat berbicara di media mengenai kasus hukum, psikolog wajib tetap berpegang pada kaidah ilmiah psikologi serta menjaga kerahasiaan dan kepentingan masyarakat." },
       { text: "Menyampaikan pendapat pribadi mengenai pihak yang diduga melakukan tindak pidana.", desc: "Berpendapat pribadi mengenai dugaan pidana.", correct: false, feedback: "Salah! Psikolog harus berbasis pada kaidah ilmiah dan objektivitas profesi, bukan sekadar menyampaikan pendapat atau asumsi pribadi." },
       { text: "Memberikan kesimpulan kasus meskipun belum melakukan pemeriksaan psikologis.", desc: "Memberi kesimpulan tanpa asesmen.", correct: false, feedback: "Salah besar! Memberikan kesimpulan tanpa pemeriksaan dan asesmen yang sah melanggar berat etika profesional psikologi." }
     ]
@@ -51,7 +52,7 @@ const allCases = [
       { text: "Keadilan & Kesejahteraan", desc: "Keadilan dan Kesejahteraan", correct: false, feedback: "Kurang tepat. Meskipun kesejahteraan penting, fokus utama penegakan hukum dan kesaksian ahli adalah menegakkan kebenaran dan keadilan." },
       { text: "Kebenaran & Kebaikan", desc: "Kebenaran dan Kebaikan", correct: false, feedback: "Kurang tepat. Istilah baku dalam konteks hukum dan peradilan yang diemban seorang saksi ahli adalah menegakkan kebenaran dan keadilan." },
       { text: "Kerahasiaan & Kenyamanan", desc: "Kerahasiaan dan Kenyamanan", correct: false, feedback: "Salah. Aspek kenyamanan bukanlah tujuan utama dari pemberian kesaksian hukum di pengadilan." },
-      { text: "Kebenaran & Keadilan", desc: "Kebenaran dan Keadilan", correct: true, feedback: "Benar! ✨ Dalam memberikan kesaksian di ranah hukum, seorang psikolog memiliki komitmen utama untuk membantu menegakkan kebenaran dan keadilan." }
+      { text: "Kebenaran & Keadilan", desc: "Kebenaran dan Keadilan", correct: true, feedback: "Benar! Dalam memberikan kesaksian di ranah hukum, seorang psikolog memiliki komitmen utama untuk membantu menegakkan kebenaran dan keadilan." }
     ]
   },
 
@@ -88,9 +89,10 @@ const allCases = [
     type: "input",
     category: "RUANG LINGKUP FORENSIK",
     title: "Definisi Bidang Hukum Psikologi Forensik",
-    description: "Psikolog forensik adalah psikolog yang tugasnya memberikan bantuan profesional psikologi berkaitan dengan permasalahan hukum, khususnya... (Ketik jawabanmu, misal: besok libur)",
+    description: "Psikolog forensik adalah psikolog yang tugasnya memberikan bantuan profesional psikologi berkaitan dengan permasalahan hukum, khususnya... (Ketik jawabanmu, misal: peradilan pidana)",
     answer: "peradilan pidana",
-    feedback: "Jawaban benar! ✨ Psikolog forensik utamanya memberikan bantuan profesional untuk mendukung jalannya proses peradilan pidana dan hukum yang berlaku."
+    feedback: "Jawaban benar! Psikolog forensik utamanya memberikan bantuan profesional untuk mendukung jalannya proses peradilan pidana dan hukum yang berlaku.",
+    wrongFeedback: "Salah! Bantuan profesional psikologi forensik secara khusus berfokus pada ranah peradilan pidana."
   }
 ];
 
@@ -100,7 +102,7 @@ let playerName = "";
 let currentCaseIndex = 0;
 let score = 0;
 let lives = 5;
-const maxScorePerCase = 15; // Bobot skor per soal
+const maxScorePerCase = 15;
 let isMuted = false;
 
 // Element DOM
@@ -125,7 +127,6 @@ const characterEl = document.getElementById("character");
 const bgMusic = document.getElementById("bg-music");
 const musicToggleBtn = document.getElementById("music-toggle-btn");
 
-// Fungsi Mengacak Array (Fisher-Yates Shuffle)
 function shuffleArray(array) {
   let arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
@@ -135,7 +136,6 @@ function shuffleArray(array) {
   return arr;
 }
 
-// Fungsi Kontrol Musik Mute/Unmute
 function toggleMusic() {
   if (bgMusic.paused) {
     bgMusic.play();
@@ -150,7 +150,6 @@ function toggleMusic() {
   }
 }
 
-// Fungsi Mulai Game setelah isi Nama
 function startGame(event) {
   event.preventDefault();
   const inputVal = nameInput.value.trim();
@@ -159,10 +158,8 @@ function startGame(event) {
   playerName = inputVal;
   startModal.classList.add("hidden");
 
-  // Acak urutan 7 soal setiap kali game dimulai
   cases = shuffleArray(allCases);
 
-  // Putar Musik Otomatis Saat Game Dimulai
   bgMusic.volume = 0.4;
   bgMusic.play().then(() => {
     isMuted = false;
@@ -171,7 +168,6 @@ function startGame(event) {
     console.log("Autoplay dicegah browser:", err);
   });
 
-  // Inisialisasi game
   score = 0;
   lives = 5;
   currentCaseIndex = 0;
@@ -180,7 +176,6 @@ function startGame(event) {
   loadCase();
 }
 
-// Render Nyawa (Hearts)
 function updateHearts() {
   let heartsHtml = "";
   for (let i = 0; i < 5; i++) {
@@ -193,17 +188,14 @@ function updateHearts() {
   heartsEl.innerText = heartsHtml.trim();
 }
 
-// Memuat Kasus (Mendukung Pilihan Ganda & Isian)
 function loadCase() {
   const currentCase = cases[currentCaseIndex];
 
-  // Reset tampilan UI
   feedbackEl.style.display = "none";
   feedbackEl.className = "feedback";
   nextBtn.style.display = "none";
   speechEl.innerText = `Hai ${playerName}! Yuk selesaikan kasus ini! 💗`;
 
-  // Render Info Kasus
   progressEl.innerText = `${currentCaseIndex + 1}/${cases.length}`;
   caseCategoryEl.innerText = currentCase.category;
   caseTitleEl.innerText = currentCase.title;
@@ -211,9 +203,7 @@ function loadCase() {
 
   actionButtonsEl.innerHTML = "";
 
-  // Cek Tipe Soal: Pilihan Ganda ("choice") atau Isian ("input")
   if (currentCase.type === "choice") {
-    // Menyesuaikan tampilan grid tombol agar 4 pilihan ganda rapi (2x2 grid)
     actionButtonsEl.style.display = "grid";
     actionButtonsEl.style.gridTemplateColumns = "repeat(auto-fit, minmax(200px, 1fr))";
 
@@ -229,7 +219,6 @@ function loadCase() {
       actionButtonsEl.appendChild(btn);
     });
   } else if (currentCase.type === "input") {
-    // Tampilan untuk Soal Isian
     actionButtonsEl.style.display = "block";
 
     const inputContainer = document.createElement("div");
@@ -256,7 +245,6 @@ function loadCase() {
   }
 }
 
-// Validasi Jawaban Pilihan Ganda
 function selectOption(option) {
   const buttons = actionButtonsEl.querySelectorAll("button");
   buttons.forEach(btn => btn.disabled = true);
@@ -289,7 +277,7 @@ function selectOption(option) {
   }
 }
 
-// Validasi Jawaban Isian
+// Validasi Jawaban Isian dengan feedback khusus jika Salah
 function checkInputAnswer(currentCase, userVal) {
   const cleanUserVal = userVal.trim().toLowerCase();
   if (!cleanUserVal) return;
@@ -299,7 +287,6 @@ function checkInputAnswer(currentCase, userVal) {
   if (submitBtn) submitBtn.disabled = true;
   if (textInput) textInput.disabled = true;
 
-  // Cek apakah jawaban mengandung kata kunci yang benar
   if (cleanUserVal.includes(currentCase.answer.toLowerCase())) {
     score += maxScorePerCase;
     scoreEl.innerText = score;
@@ -312,7 +299,7 @@ function checkInputAnswer(currentCase, userVal) {
     updateHearts();
 
     feedbackEl.className = "feedback wrong";
-    feedbackEl.innerHTML = `<strong>Kurang Tepat! 😅</strong><br>Jawaban yang benar: <b>${currentCase.answer}</b>.<br>${currentCase.feedback}`;
+    feedbackEl.innerHTML = `<strong>Salah! 😅</strong><br>${currentCase.wrongFeedback}<br><small>Jawaban yang tepat adalah: <b>${currentCase.answer}</b></small>`;
     speechEl.innerText = "Belum tepat, ayo coba soal berikutnya!";
 
     characterEl.classList.add("shake");
@@ -328,7 +315,6 @@ function checkInputAnswer(currentCase, userVal) {
   }
 }
 
-// Tombol Lanjut ke Kasus Berikutnya
 function nextCase() {
   currentCaseIndex++;
   if (currentCaseIndex < cases.length) {
@@ -336,7 +322,6 @@ function nextCase() {
   }
 }
 
-// Tampilkan Modal Hasil Akhir & Simpan ke Spreadsheet
 function showEndModal() {
   endModal.classList.remove("hidden");
   finalScoreEl.innerText = score;
@@ -353,11 +338,9 @@ function showEndModal() {
 
   evaluationEl.innerText = evalText;
 
-  // Otomatis Simpan Hasil ke Spreadsheet
   saveResultToSpreadsheet(playerName, score);
 }
 
-// Pengiriman Data ke Google Apps Script
 function saveResultToSpreadsheet(name, finalScore) {
   if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("URL_APPS_SCRIPT_ANDA")) {
     saveStatusEl.innerText = "⚠️ Masukkan URL Apps Script untuk menyimpan nilai ke Spreadsheet.";
