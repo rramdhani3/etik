@@ -126,6 +126,15 @@ const saveStatusEl = document.getElementById("save-status");
 const characterEl = document.getElementById("character");
 const bgMusic = document.getElementById("bg-music");
 const musicToggleBtn = document.getElementById("music-toggle-btn");
+const sfxCorrect = document.getElementById("sfx-correct");
+const sfxWrong = document.getElementById("sfx-wrong");
+
+function playSFX(audioElement) {
+  if (audioElement && !isMuted) {
+    audioElement.currentTime = 0; // Reset audio ke awal agar bisa diputar cepat
+    audioElement.play().catch(err => console.log("Gagal memutar SFX:", err));
+  }
+}
 
 function shuffleArray(array) {
   let arr = [...array];
@@ -252,6 +261,7 @@ function selectOption(option) {
   if (option.correct) {
     score += maxScorePerCase;
     scoreEl.innerText = score;
+    playSFX(sfxCorrect);
 
     feedbackEl.className = "feedback correct";
     feedbackEl.innerHTML = `<strong>Jawaban Benar! ✨</strong><br>${option.feedback}`;
@@ -259,6 +269,7 @@ function selectOption(option) {
   } else {
     lives--;
     updateHearts();
+    playSFX(sfxWrong);
 
     feedbackEl.className = "feedback wrong";
     feedbackEl.innerHTML = `<strong>Kurang Tepat! 😅</strong><br>${option.feedback}`;
@@ -290,6 +301,7 @@ function checkInputAnswer(currentCase, userVal) {
   if (cleanUserVal.includes(currentCase.answer.toLowerCase())) {
     score += maxScorePerCase;
     scoreEl.innerText = score;
+    playSFX(sfxCorrect);
 
     feedbackEl.className = "feedback correct";
     feedbackEl.innerHTML = `<strong>Jawaban Benar! ✨</strong><br>${currentCase.feedback}`;
@@ -297,7 +309,7 @@ function checkInputAnswer(currentCase, userVal) {
   } else {
     lives--;
     updateHearts();
-
+    playSFX(sfxWrong);
     feedbackEl.className = "feedback wrong";
     feedbackEl.innerHTML = `<strong>Salah! 😅</strong><br>${currentCase.wrongFeedback}<br><small>Jawaban yang tepat adalah: <b>${currentCase.answer}</b></small>`;
     speechEl.innerText = "Belum tepat, ayo coba soal berikutnya!";
