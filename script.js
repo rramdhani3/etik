@@ -22,7 +22,7 @@ const allCases = [
     type: "input",
     category: "STANDAR ASESMEN",
     title: "Landasan Baku Pemeriksaan Psikologi",
-    description: "Dalam menjalankan tanggung jawabnya psikolog harus mendasarkan pada standar pemeriksaan psikologi yang baku sesuai kode etik psikologi yang terkait dengan asesmen, dan intervensi. Sesuai yang tercantum pada Kode Etik Psikologi Indonesia Pasal… (Ketik angka pasal, misal: 57)",
+    description: "Dalam menjalankan tanggung jawabnya psikolog harus mendasarkan pada standar pemeriksaan psikologi yang baku sesuai kode etik psikologi yang terkait dengan asesmen, dan intervensi. Sesuai yang tercantum pada Kode Etik Psikologi Indonesia Pasal… (Ketik angka pasal, misal: 520)",
     answer: "57",
     feedback: "Benar! Pasal 57 Kode Etik Psikologi Indonesia menegaskan bahwa psikolog wajib mendasarkan seluruh tindakan asesmen dan intervensinya pada standar pemeriksaan psikologi yang baku.",
     wrongFeedback: "Salah! Ketentuan mengenai kewajiban mendasarkan tindakan pada standar pemeriksaan psikologi yang baku diatur dalam Pasal 57."
@@ -89,7 +89,7 @@ const allCases = [
     type: "input",
     category: "RUANG LINGKUP FORENSIK",
     title: "Definisi Bidang Hukum Psikologi Forensik",
-    description: "Psikolog forensik adalah psikolog yang tugasnya memberikan bantuan profesional psikologi berkaitan dengan permasalahan hukum, khususnya... (Ketik jawabanmu, misal: peradilan pidana)",
+    description: "Psikolog forensik adalah psikolog yang tugasnya memberikan bantuan profesional psikologi berkaitan dengan permasalahan hukum, khususnya... (Ketik jawabanmu, misal: besok libur)",
     answer: "peradilan pidana",
     feedback: "Jawaban benar! Psikolog forensik utamanya memberikan bantuan profesional untuk mendukung jalannya proses peradilan pidana dan hukum yang berlaku.",
     wrongFeedback: "Salah! Bantuan profesional psikologi forensik secara khusus berfokus pada ranah peradilan pidana."
