@@ -64,7 +64,7 @@ const allCases = [
     description: "Seorang psikolog pernah menjadi terapis bagi seseorang yang kemudian menjadi terdakwa dalam kasus pidana. Pengadilan meminta psikolog tersebut untuk memberikan kesaksian sebagai saksi ahli. Bagaimana seharusnya psikolog menyikapi situasi tersebut?",
     options: [
       { text: "Menolak memberikan kesaksian dalam keadaan apa pun", desc: "Menolak mutlak karena hubungan terapeutik.", correct: false, feedback: "Kurang tepat. Hubungan terapeutik memang perlu diwaspadai untuk menghindari konflik kepentingan, namun penolakan mutlak tanpa mempertimbangkan ketentuan hukum juga tidak selalu dibenarkan." },
-      { text: "Mempertimbangkan ketentuan hukum yang berlaku, tetap bersikap profesional saat memberikan kesaksian, serta menjaga atau meminimalkan konflik", desc: "Mempertimbangkan hukum & profesional.", correct: true, feedback: "Tepat sekali! 👏 Psikolog harus tetap bersikap profesional, mematuhi hukum yang berlaku, serta berupaya meminimalkan konflik kepentingan meskipun pernah memiliki hubungan terapeutik sebelumnya." },
+      { text: "Mempertimbangkan ketentuan hukum yang berlaku, tetap bersikap profesional saat memberikan kesaksian, serta menjaga atau meminimalkan konflik", desc: "Mempertimbangkan hukum & profesional.", correct: true, feedback: "Tepat sekali! Psikolog harus tetap bersikap profesional, mematuhi hukum yang berlaku, serta berupaya meminimalkan konflik kepentingan meskipun pernah memiliki hubungan terapeutik sebelumnya." },
       { text: "Menghindari kesaksian dengan menyerahkan seluruh tanggung jawab kepada psikolog lain", desc: "Menghindar dan melempar ke psikolog lain.", correct: false, feedback: "Kurang tepat. Jika pengadilan memanggil berdasarkan penanganan spesifik yang pernah dilakukan, psikolog harus menyikapinya secara profesional, bukan sekadar menghindar." },
       { text: "Psikolog boleh membuka semua informasi terapi tanpa mempertimbangkan batasan lain", desc: "Membuka seluruh data terapi tanpa batasan.", correct: false, feedback: "Salah besar! Membuka seluruh isi terapi tanpa batasan hukum dan persetujuan melanggar asas kerahasiaan klien." }
     ]
@@ -79,7 +79,7 @@ const allCases = [
     options: [
       { text: "Memiliki kompetensi sesuai kode etik, memahami standar forensik, dan mendasarkan pekerjaan pada sistem hukum.", desc: "Kompetensi kode etik, paham forensik, basis hukum.", correct: false, feedback: "Kurang tepat. Urutan dan fokus utamanya harus berlandaskan pada standar khusus forensik dan pemahaman sistem hukum yang berlaku." },
       { text: "Memiliki kompetensi standar forensik, memahami kode etik, dan mendasarkan pekerjaan pada sistem hukum.", desc: "Kompetensi forensik, paham kode etik, basis hukum.", correct: false, feedback: "Kurang tepat. Pekerjaan psikolog forensik harus mendasarkan pada kode etik psikologi terlebih dahulu sebagai landasan utamanya." },
-      { text: "Memiliki kompetensi sesuai dengan standar psikologi forensik, memahami sistem hukum di Indonesia dan mendasarkan pekerjaannya pada kode etik psikologi.", desc: "Kompetensi forensik, paham hukum, basis kode etik.", correct: true, feedback: "Hebat! 🌟 Praktik psikologi forensik menuntut kompetensi khusus pada standar forensik, pemahaman mendalam tentang sistem hukum Indonesia, serta kepatuhan penuh terhadap kode etik psikologi." },
+      { text: "Memiliki kompetensi sesuai dengan standar psikologi forensik, memahami sistem hukum di Indonesia dan mendasarkan pekerjaannya pada kode etik psikologi.", desc: "Kompetensi forensik, paham hukum, basis kode etik.", correct: true, feedback: "Hebat! Praktik psikologi forensik menuntut kompetensi khusus pada standar forensik, pemahaman mendalam tentang sistem hukum Indonesia, serta kepatuhan penuh terhadap kode etik psikologi." },
       { text: "Memiliki kompetensi sesuai sistem hukum, memahami standar forensik, dan mendasarkan pada kode etik.", desc: "Kompetensi sistem hukum, paham forensik, basis kode etik.", correct: false, feedback: "Kurang tepat karena kompetensi utama psikolog terletak pada bidang keilmuan psikologinya, bukan pada sistem hukum itu sendiri." }
     ]
   },
@@ -89,7 +89,7 @@ const allCases = [
     type: "input",
     category: "RUANG LINGKUP FORENSIK",
     title: "Definisi Bidang Hukum Psikologi Forensik",
-    description: "Psikolog forensik adalah psikolog yang tugasnya memberikan bantuan profesional psikologi berkaitan dengan permasalahan hukum, khususnya... (Ketik jawabanmu, misal: besok libur)",
+    description: "Psikolog forensik adalah psikolog yang tugasnya memberikan bantuan profesional psikologi berkaitan dengan permasalahan hukum, khususnya... (Ketik jawabanmu, misal: earth moon)",
     answer: "peradilan pidana",
     feedback: "Jawaban benar! Psikolog forensik utamanya memberikan bantuan profesional untuk mendukung jalannya proses peradilan pidana dan hukum yang berlaku.",
     wrongFeedback: "Salah! Bantuan profesional psikologi forensik secara khusus berfokus pada ranah peradilan pidana."
