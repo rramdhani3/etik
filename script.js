@@ -102,7 +102,7 @@ let playerName = "";
 let currentCaseIndex = 0;
 let score = 0;
 let lives = 5;
-const maxScorePerCase = 15;
+const maxScorePerCase = 20;
 let isMuted = false;
 
 // Element DOM
