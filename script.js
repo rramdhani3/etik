@@ -102,7 +102,11 @@ let playerName = "";
 let currentCaseIndex = 0;
 let score = 0;
 let lives = 5;
-const maxScorePerCase = 20;
+
+// Bobot Nilai Baru: Pilihan Ganda = 6, Isian = 10 (Total 5 soal PG x 6 = 30, 2 soal Isian x 10 = 20, Total = 50)
+const scoreChoice = 6;
+const scoreInput = 10;
+
 let isMuted = false;
 
 // Element DOM
@@ -131,7 +135,7 @@ const sfxWrong = document.getElementById("sfx-wrong");
 
 function playSFX(audioElement) {
   if (audioElement && !isMuted) {
-    audioElement.currentTime = 0; // Reset audio ke awal agar bisa diputar cepat
+    audioElement.currentTime = 0;
     audioElement.play().catch(err => console.log("Gagal memutar SFX:", err));
   }
 }
@@ -259,12 +263,12 @@ function selectOption(option) {
   buttons.forEach(btn => btn.disabled = true);
 
   if (option.correct) {
-    score += maxScorePerCase;
+    score += scoreChoice; // Tambah 6 poin untuk Pilihan Ganda
     scoreEl.innerText = score;
     playSFX(sfxCorrect);
 
     feedbackEl.className = "feedback correct";
-    feedbackEl.innerHTML = `<strong>Jawaban Benar! ✨</strong><br>${option.feedback}`;
+    feedbackEl.innerHTML = `<strong>Jawaban Benar! (+6 Poin) ✨</strong><br>${option.feedback}`;
     speechEl.innerText = "Wah, hebat sekali! Pilihanmu tepat! 🎉";
   } else {
     lives--;
@@ -288,7 +292,6 @@ function selectOption(option) {
   }
 }
 
-// Validasi Jawaban Isian dengan feedback khusus jika Salah
 function checkInputAnswer(currentCase, userVal) {
   const cleanUserVal = userVal.trim().toLowerCase();
   if (!cleanUserVal) return;
@@ -299,17 +302,18 @@ function checkInputAnswer(currentCase, userVal) {
   if (textInput) textInput.disabled = true;
 
   if (cleanUserVal.includes(currentCase.answer.toLowerCase())) {
-    score += maxScorePerCase;
+    score += scoreInput; // Tambah 10 poin untuk Isian
     scoreEl.innerText = score;
     playSFX(sfxCorrect);
 
     feedbackEl.className = "feedback correct";
-    feedbackEl.innerHTML = `<strong>Jawaban Benar! ✨</strong><br>${currentCase.feedback}`;
+    feedbackEl.innerHTML = `<strong>Jawaban Benar! (+10 Poin) ✨</strong><br>${currentCase.feedback}`;
     speechEl.innerText = "Jawabanmu akurat sekali! Hebat! 🌟";
   } else {
     lives--;
     updateHearts();
     playSFX(sfxWrong);
+
     feedbackEl.className = "feedback wrong";
     feedbackEl.innerHTML = `<strong>Salah! 😅</strong><br>${currentCase.wrongFeedback}<br><small>Jawaban yang tepat adalah: <b>${currentCase.answer}</b></small>`;
     speechEl.innerText = "Belum tepat, ayo coba soal berikutnya!";
@@ -340,9 +344,9 @@ function showEndModal() {
   playerDisplayName.innerText = playerName;
 
   let evalText = "";
-  if (score >= 80) {
+  if (score >= 40) {
     evalText = "Luar biasa! Kamu memahami prinsip etika psikologi forensik dengan sangat baik. 🌟";
-  } else if (score >= 50) {
+  } else if (score >= 25) {
     evalText = "Bagus! Kamu sudah berusaha memahami dasar-dasar etika forensik dengan cukup baik. 👍";
   } else {
     evalText = "Jangan berkecil hati! Pelajari kembali materi etika psikologi forensik dan coba lagi ya! 💪";
